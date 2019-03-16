@@ -1,2 +1,10 @@
 Look for how to setup external identity provides.
 https://docs.microsoft.com/en-us/aspnet/core/security/authentication/social/index?view=aspnetcore-2.2
+
+UserIdenity Migration application 
+1. Select individual authentication 
+2. RUn application 
+3. Check default connection string in appsetings.json
+4. Change localdb with your sql server or azure database. and provide proper conntection string values
+4. Run Update-Database in package manager console. 
+5. Scaffold-DbContext "Data Source=DESKTOP-PPL5CRC\SQLEXPRESS;Initial Catalog=Northwind;Integrated Security=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models -Force -c SolarCRM
