@@ -6,5 +6,6 @@ UserIdenity Migration application
 2. RUn application 
 3. Check default connection string in appsetings.json
 4. Change localdb with your sql server or azure database. and provide proper conntection string values
-4. Run Update-Database in package manager console. 
-5. Scaffold-DbContext "Data Source=DESKTOP-PPL5CRC\SQLEXPRESS;Initial Catalog=Northwind;Integrated Security=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models -Force -c SolarCRM
+5. Run Update-Database in package manager console. 
+6. Scaffold-DbContext "Data Source=DESKTOP-PPL5CRC\SQLEXPRESS;Initial Catalog=SolarCRM;Integrated Security=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models  -Force -context SolarCRMContext
+   User -context or -Forece instad of -- force or --context
