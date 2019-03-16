@@ -13,6 +13,8 @@ using Microsoft.EntityFrameworkCore;
 using SolarCRM.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using SolarCRM.Services;
+//using SolarCRM.Services;
 
 namespace SolarCRM
 {
@@ -40,8 +42,11 @@ namespace SolarCRM
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDefaultIdentity<IdentityUser>()
                 .AddRoles<IdentityRole>()
+                .AddRoleManager<RoleManager<IdentityRole>>()
+                .AddUserManager<UserManager<IdentityUser>>()
                 .AddDefaultUI(UIFramework.Bootstrap4)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+            services.AddScoped<IUserService,UserService>();  
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }

@@ -25,3 +25,8 @@ select * from AspNetUserRoles
 --Insert into AspNetUserRoles (UserId,RoleId) values (
 --(select ID from AspNetUsers where UserName ='Devarsh14@gmail.com')
 --,(select ID from AspNetRoles where Name='Administrator'))
+
+
+
+--- 2-FA implementation 
+// For more details see this link https://go.microsoft.com/fwlink/?LinkID=532713
