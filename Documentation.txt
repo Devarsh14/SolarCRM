@@ -1,0 +1,2 @@
+Look for how to setup external identity provides.
+https://docs.microsoft.com/en-us/aspnet/core/security/authentication/social/index?view=aspnetcore-2.2
