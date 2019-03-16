@@ -9,3 +9,19 @@ UserIdenity Migration application
 5. Run Update-Database in package manager console. 
 6. Scaffold-DbContext "Data Source=DESKTOP-PPL5CRC\SQLEXPRESS;Initial Catalog=SolarCRM;Integrated Security=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models  -Force -context SolarCRMContext
    User -context or -Forece instad of -- force or --context
+
+
+
+
+---- SQL Side role setup ---- 
+---- Assign user a admin role to go through authorise mechanism.
+   ---- First admin role setup ---
+   select * from AspNetRoles
+--Insert into AspNetRoles (Id,Name,NormalizedName) values (NEWID(),'Administrator','Administrator')
+
+-- 
+select * from AspNetUserRoles
+
+--Insert into AspNetUserRoles (UserId,RoleId) values (
+--(select ID from AspNetUsers where UserName ='Devarsh14@gmail.com')
+--,(select ID from AspNetRoles where Name='Administrator'))

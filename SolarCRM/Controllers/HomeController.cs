@@ -11,12 +11,17 @@ namespace SolarCRM.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly IAuthorizationService authorizationService;
+        public HomeController(IAuthorizationService authorizationService)
+        {
+            this.authorizationService = authorizationService;
+        }
         public IActionResult Index()
         {
             return View();
         }
 
-        [Authorize]
+        [Authorize(Roles ="Administrator")]
         public IActionResult Privacy()
         {
             return View();
