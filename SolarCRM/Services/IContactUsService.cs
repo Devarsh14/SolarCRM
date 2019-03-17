@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace SolarCRM.Services
 {
-    interface IContactUsService
+    public interface IContactUsService
     {
-        IActionResult CreateContactUSRequest(ContactUs contactUs);        
+        void CreateContactUSRequest(ContactUs contactUs);        
     }
 
     public class ContactUsService : IContactUsService
@@ -19,9 +19,29 @@ namespace SolarCRM.Services
         {
             this.solarCRMContext = solarCRMContext;
         }
-        public IActionResult CreateContactUSRequest(ContactUs contactUs)
+        public  void CreateContactUSRequest(ContactUs contactUs)
         {
-            throw new NotImplementedException();
+            IActionResult actionResult = default;
+            contactUs.Id = Guid.NewGuid();
+
+
+            this.solarCRMContext.Add(contactUs);
+            try
+            {
+                
+                this.solarCRMContext.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+              
+            }
+            //Bug : 
+
+            // if succesfull send email to customer and owner 
+            // Send sms to owner 
+            
+
+
         }
     }
 }

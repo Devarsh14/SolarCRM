@@ -52,6 +52,9 @@ namespace SolarCRM
             // Solar CRM DBCONTEXT 
             services.AddDbContext<SolarCRMContext>();
 
+            // Add custom servies
+            services.AddScoped<IContactUsService, ContactUsService>();
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
