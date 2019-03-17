@@ -14,6 +14,7 @@ using SolarCRM.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using SolarCRM.Services;
+using SolarCRM.Models;
 //using SolarCRM.Services;
 
 namespace SolarCRM
@@ -46,7 +47,10 @@ namespace SolarCRM
                 .AddUserManager<UserManager<IdentityUser>>()
                 .AddDefaultUI(UIFramework.Bootstrap4)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
-            services.AddScoped<IUserService,UserService>();  
+            services.AddScoped<IUserService,UserService>();
+
+            // Solar CRM DBCONTEXT 
+            services.AddDbContext<SolarCRMContext>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
