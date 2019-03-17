@@ -22,6 +22,7 @@ namespace SolarCRM.Models
         public virtual DbSet<AspNetUserRoles> AspNetUserRoles { get; set; }
         public virtual DbSet<AspNetUserTokens> AspNetUserTokens { get; set; }
         public virtual DbSet<AspNetUsers> AspNetUsers { get; set; }
+        public virtual DbSet<ContactUs> ContactUs { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -136,6 +137,31 @@ namespace SolarCRM.Models
                 entity.Property(e => e.NormalizedUserName).HasMaxLength(256);
 
                 entity.Property(e => e.UserName).HasMaxLength(256);
+            });
+
+            modelBuilder.Entity<ContactUs>(entity =>
+            {
+                entity.ToTable("Contact_Us", "data");
+
+                entity.Property(e => e.Id).HasDefaultValueSql("(newsequentialid())");
+
+                entity.Property(e => e.Email).HasMaxLength(2500);
+
+                entity.Property(e => e.FirstName)
+                    .HasColumnName("First_Name")
+                    .HasMaxLength(2500);
+
+                entity.Property(e => e.IsContacted).HasColumnName("Is_Contacted");
+
+                entity.Property(e => e.LastName)
+                    .HasColumnName("Last_Name")
+                    .HasMaxLength(2500);
+
+                entity.Property(e => e.Message).HasMaxLength(2500);
+
+                entity.Property(e => e.PhoneNumber)
+                    .HasColumnName("Phone_Number")
+                    .HasMaxLength(2500);
             });
         }
     }
